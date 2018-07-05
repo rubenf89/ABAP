@@ -1,0 +1,19 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZRFI_REPORTE_PROVEEEDORES_SEL
+*&---------------------------------------------------------------------*
+
+*----------------------------------------------------------------------*
+* PARAMETROS DE SELECCION                                              *
+*----------------------------------------------------------------------*
+SELECTION-SCREEN: BEGIN OF BLOCK b1 WITH FRAME TITLE text-000.
+SELECT-OPTIONS: s_ctaacr  FOR lfa1-lifnr OBLIGATORY,
+                s_grpcta  FOR lfa1-ktokk.
+SELECTION-SCREEN: END OF BLOCK b1.
+
+SELECTION-SCREEN: BEGIN OF BLOCK b2 WITH FRAME TITLE text-001.
+PARAMETERS: "p_ckpc TYPE c AS CHECKBOX,
+            p_rbpc   RADIOBUTTON GROUP gr1 USER-COMMAND ucomm1 DEFAULT 'X', "PC,
+            p_filepc TYPE rlgrap-filename,
+            p_rbu    RADIOBUTTON GROUP gr1, "UNIX
+            p_fileu  TYPE rlgrap-filename. "Archivo UNIX.
+SELECTION-SCREEN: END OF BLOCK b2.
